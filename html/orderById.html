@@ -1,0 +1,21 @@
+<script>
+    function ordenarImagens() {
+        var tabela = document.getElementById('tabela');
+        var linhas = tabela.getElementsByTagName('tr');
+
+        for (var i = 0; i < linhas.length; i++) {
+            var colunas = linhas[i].getElementsByTagName('td');
+            var colunasArray = Array.from(colunas);
+
+            colunasArray.sort(function (a, b) {
+                var idA = parseInt(a.id);
+                var idB = parseInt(b.id);
+                return idA - idB;
+            });
+
+            for (var j = 0; j < colunasArray.length; j++) {
+                linhas[i].appendChild(colunasArray[j]);
+            }
+        }
+    }
+</script>
